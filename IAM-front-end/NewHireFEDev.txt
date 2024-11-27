@@ -1,0 +1,45 @@
+Job Title: Front-End Developer
+Location: Cleveland, Ohio (or Remote)
+Type: Full-Time
+
+About Us
+We are [Your Company Name], a forward-thinking organization focused on building innovative web solutions. As we continue to grow, we are looking for a talented and motivated Front-End Developer to join our team. You'll work closely with cross-functional teams to deliver high-quality, scalable, and visually appealing user interfaces for our web applications.
+
+Role Overview
+As a Front-End Developer, you will be responsible for translating design mockups into high-quality, user-friendly web pages. You will work with designers, back-end developers, and product managers to build and maintain front-end features, ensuring that they are responsive, performant, and accessible across different devices and browsers.
+
+Key Responsibilities
+Collaborate with UI/UX designers to implement responsive, pixel-perfect user interfaces.
+Write clean, maintainable, and efficient code using modern JavaScript frameworks (e.g., React, Vue.js, or Angular).
+Optimize web pages for maximum speed and scalability.
+Implement best practices for front-end architecture, including component design, state management, and reusable code.
+Debug and troubleshoot issues across different browsers and devices.
+Collaborate with back-end developers to integrate front-end components with server-side logic.
+Ensure web pages comply with accessibility standards (WCAG).
+Stay up to date with emerging front-end technologies and industry trends.
+Qualifications
+Bachelor’s degree in Computer Science, Information Technology, or a related field (or equivalent work experience).
+2+ years of experience in front-end development.
+Proficiency in HTML5, CSS3, and JavaScript (ES6+).
+Hands-on experience with modern JavaScript frameworks like React, Vue.js, or Angular.
+Experience with version control systems (e.g., Git).
+Strong understanding of responsive web design, cross-browser compatibility, and front-end performance optimization.
+Familiarity with CSS preprocessors such as Sass or LESS.
+Knowledge of RESTful APIs and how to interface with them in front-end applications.
+Experience with build tools such as Webpack, Babel, or Gulp.
+Strong problem-solving skills and attention to detail.
+Excellent communication and teamwork skills.
+Bonus Skills
+Experience with front-end testing tools and frameworks (e.g., Jest, Cypress).
+Familiarity with design tools like Figma, Sketch, or Adobe XD.
+Knowledge of TypeScript.
+Familiarity with cloud platforms like AWS or Azure for front-end deployment.
+Understanding of DevOps and CI/CD practices.
+Perks and Benefits
+Competitive salary and benefits package.
+Flexible working hours and the option for remote work.
+Opportunity for career growth and professional development.
+Collaborative and inclusive work environment.
+Work with cutting-edge technologies and exciting projects.
+How to Apply
+To apply, please send your resume and portfolio to [your-email@company.com] with the subject line "Front-End Developer Application - [Your Name]."

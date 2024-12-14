@@ -1,0 +1,56 @@
+refrencing from one module to another use the outputs from the network module
+
+
+module "infrastructure" {
+  source = "./modules/infrastructure"
+
+  vpc_id               = module.network.vpc_id
+  public_subnet_ids    = module.network.public_subnet_ids
+  private_subnet_ids   = module.network.private_subnet_ids
+  lb_security_group_id = module.network.lb_security_group_id
+
+  # Additional variables for infrastructure setup
+  ...
+}
+
+
+resource "aws_ec2_transit_gateway" "tokyo_tgw" {
+  provider    = aws.tokyo
+  description = "tokyo_tgw"
+
+  auto_accept_shared_attachments  = "enable"
+  default_route_table_association = "disable"
+  transit_gateway_cidr_blocks     = ["10.0.0.0/8"]
+  default_route_table_propagation = "disable"
+
+  tags = {
+    Name = "tokyo_tgw"
+  }
+}
+resource "aws_route" "tokyo_pub_tgw_route" {
+  provider               = aws.tokyo
+  route_table_id         = aws_route_table.tokyo_pub_rtb.id
+  destination_cidr_block = "10.0.0.0/8"
+  transit_gateway_id     = aws_ec2_transit_gateway.tokyo_tgw.id
+}
+
+resource "aws_ec2_transit_gateway_route" "tokyo_tgw_vpc_rte" {
+  provider                       = aws.tokyo
+  destination_cidr_block         = aws_vpc.tokyo_vpc.cidr_block
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.tokyo_tgw_vpc_att.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tokyo_tgw_rtb.id
+
+  depends_on = [
+    aws_ec2_transit_gateway_vpc_attachment.tokyo_tgw_vpc_att
+  ]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+resource "aws_ec2_transit_gateway_route_table_association" "tokyo_rtb_assoc" {
+  provider                       = aws.tokyo
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.tokyo_tgw_vpc_att.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tokyo_tgw_rtb.id
+}
+umk-snez-hvp

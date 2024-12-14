@@ -21,3 +21,4 @@
 
 # Ignore .pem files in sub folders ssh 
 **/*.pem
+**/*.json

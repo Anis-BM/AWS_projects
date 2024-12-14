@@ -53,3 +53,60 @@ variable "enviroment" {
   default     = "dev"
 
 }
+
+variable "phone_number" {
+  type      = string
+  sensitive = true
+  default   = "867-5309"
+}
+
+variable "us-east-1-azs" {
+    type = list(string)
+    default = [
+        "us-east-1a",
+        "us-east-1b",
+        "us-east-1c",
+        "us-east-1d",
+        "us-east-1e"
+    ]
+}
+
+variable "ip" {
+  type = map(string)
+  default = {
+    prod = "10.0.150.0/24"
+    dev  = "10.0.250.0/24"
+  }
+}
+
+variable "env" {
+  type = map(any)
+  default = {
+    prod = {
+      ip = "10.0.160.0/24"
+      az = "us-east-1a"
+    }
+    dev  = {
+      ip = "10.0.230.0/24"
+      az = "us-east-1e"
+    }
+  }
+}
+
+variable "num_1" {
+  type = number
+  description = "Numbers for function labs"
+  default = 88
+}
+
+variable "num_2" {
+  type = number
+  description = "Numbers for function labs"
+  default = 73
+}
+
+variable "num_3" {
+  type = number
+  description = "Numbers for function labs"
+  default = 52
+}

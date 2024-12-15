@@ -555,3 +555,44 @@ resource "aws_autoscaling_group" "tokyo_asg" {
 
   target_group_arns = [aws_lb_target_group.tokyo_tg.arn] # Add target group ARN if used
 }
+
+#to build just the tgw
+#module call in the root
+module "tokyo_tgw" {
+  source           = "./modules/tgw"
+  description      = "Tokyo Transit Gateway"
+  amazon_side_asn  = 64512
+  tags             = { Environment = "Production", Name = "Tokyo-TGW" }
+  providers        = { aws = aws.Tokyo }
+}
+
+# transit gateway
+
+resource "aws_ec2_transit_gateway" "this" {
+  description     = var.description
+  amazon_side_asn = var.amazon_side_asn
+  tags            = var.tags
+}
+
+output "transit_gateway_id" {
+  description = "The ID of the Transit Gateway"
+  value       = aws_ec2_transit_gateway.this.id
+}
+
+# variables.tf
+
+variable "description" {
+  description = "Description of the Transit Gateway"
+  type        = string
+}
+
+variable "amazon_side_asn" {
+  description = "Amazon-side ASN for the Transit Gateway"
+  type        = number
+  default     = 64512
+}
+
+variable "tags" {
+  description = "Tags for the Transit Gateway"
+  type        = map(string)
+}

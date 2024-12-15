@@ -327,7 +327,7 @@ resource "aws_launch_template" "California_launch_template" {
 
   name_prefix   = "California-launch-template"
   image_id      = "ami-038bba9a164eb3dc1"
-  instance_type = "t3.micro"
+  instance_type = "t2.micro"
 
   user_data = base64encode(<<-EOF
     #!/bin/bash

@@ -78,7 +78,7 @@ module "sao_paulo_infrastructure" {
 
 module "california_infrastructure" {
   source               = "./modules/infra"
-  launch_template_id   = aws_launch_template.New_York_launch_template.id
+  launch_template_id   = aws_launch_template.California_launch_template.id
   asg_min_size         = 1
   asg_max_size         = 2
   asg_desired_capacity = 1

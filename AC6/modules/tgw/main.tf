@@ -25,15 +25,8 @@ resource "aws_ec2_transit_gateway_route_table" "this" {
   )
 }
 
-# Associate TGW Route Table with the VPC Attachment
-resource "aws_ec2_transit_gateway_route_table_association" "this" {
-  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.vpc_attachment.id
-  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.this.id
-}
-
 # Enable Route Propagation for the VPC Attachment
 resource "aws_ec2_transit_gateway_route_table_propagation" "this" {
   transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.vpc_attachment.id
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.this.id
 }
-
